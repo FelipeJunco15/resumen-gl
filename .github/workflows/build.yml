@@ -1,0 +1,36 @@
+name: Compilar Executable (.exe)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Obtener codigo del repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Compilar con PyInstaller
+      run: |
+        pyinstaller --noconfirm --onedir --windowed --add-data "templates;templates" --add-data "static;static" app.py
+
+    - name: Subir ejecutable como Artefacto
+      uses: actions/upload-artifact@v4
+      with:
+        name: Aplicacion-Resumen-Windows
+        path: dist/app/
