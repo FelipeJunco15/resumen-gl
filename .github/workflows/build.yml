@@ -23,14 +23,15 @@ jobs:
     - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r RESUMEN/requirements.txt
 
     - name: Compilar con PyInstaller
       run: |
+        cd RESUMEN
         pyinstaller --noconfirm --onedir --windowed --add-data "templates;templates" --add-data "static;static" app.py
 
     - name: Subir ejecutable como Artefacto
       uses: actions/upload-artifact@v4
       with:
         name: Aplicacion-Resumen-Windows
-        path: dist/app/
+        path: RESUMEN/dist/app/
