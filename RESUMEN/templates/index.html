@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Módulos de Procesamiento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f2f2;
+      margin-top: 40px;
+    }
+
+    .seccion-modulo {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    input[type="file"] {
+      margin: 20px 0;
+      padding: 10px;
+      width: 90%;
+    }
+
+    .btn {
+      padding: 15px;
+      width: 200px;
+      border: none;
+      border-radius: 8px;
+      background: #2d6cdf;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #1b4fb3;
+    }
+
+    .btn-verde {
+      background: #27ae60;
+    }
+
+    .btn-verde:hover {
+      background: #219653;
+    }
+
+    /* Estilos para las tablas devueltas por Python */
+    .area-resultado {
+      margin-top: 25px;
+      padding: 15px;
+      border-radius: 6px;
+      background: #f8f9fa;
+      text-align: left;
+      display: none;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #2d6cdf;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. MÓDULO WILLIAM -->
+  <div class="seccion-modulo">
+    <h1>SUBIR ARCHIVO - William Mauricio (Colombia y Canadá)</h1>
+    <form onsubmit="return false;">
+      <input type="file" id="file-william" accept=".xlsx, .xls">
+      <br><br>
+      <button type="button" class="btn btn-procesar" data-modulo="william">Subir archivo</button>
+    </form>
+    <div id="resultado-william" class="area-resultado"></div>
+  </div>
+
+  <br>
+
+  <!-- 2. MÓDULO SURESH 1 -->
+  <div class="seccion-modulo" style="background: #eef2f7;">
+    <h1>Control de Pruebas: Módulo Suresh</h1>
+    <form onsubmit="return false;">
+      <label for="file-suresh" style="font-weight: bold; color: #34495e;">Selecciona el Reporte de Suresh (2026):</label><br>
+      <input type="file" id="file-suresh" accept=".xlsx, .xls">
+      <br><br>
+      <button type="button" class="btn btn-verde btn-procesar" data-modulo="suresh">Procesar Archivo Único</button>
+    </form>
+    <div id="resultado-suresh" class="area-resultado" style="border-left: 5px solid #27ae60;"></div>
+  </div>
+
+  <br>
+
+  <!-- 3. MÓDULO SURESH 2 -->
+  <div class="seccion-modulo" style="background: #eef2f7;">
+    <h1>Control de Pruebas: Módulo Suresh (Formato 2)</h1>
+    <form onsubmit="return false;">
+      <label for="file-suresh2" style="font-weight: bold; color: #34495e;">Selecciona el Reporte de Suresh F2 (2026):</label><br>
+      <input type="file" id="file-suresh2" accept=".xlsx, .xls">
+      <br><br>
+      <button type="button" class="btn btn-verde btn-procesar" data-modulo="suresh2">Procesar Archivo Único</button>
+    </form>
+    <div id="resultado-suresh2" class="area-resultado" style="border-left: 5px solid #27ae60;"></div>
+  </div>
+
+  <br>
+
+  <!-- 4. MÓDULO MIRANDA -->
+  <div class="seccion-modulo">
+    <h1>SUBIR ARCHIVO - Miranda</h1>
+    <form onsubmit="return false;">
+      <input type="file" id="file-miranda" accept=".xlsx, .xls">
+      <br><br>
+      <button type="button" class="btn btn-procesar" data-modulo="miranda">Subir Archivo</button>
+    </form>
+    <div id="resultado-miranda" class="area-resultado"></div>
+  </div>
+
+  <br>
+
+  <!-- 5. MÓDULO DEVONNE CARL -->
+  <div class="seccion-modulo">
+    <h1>SUBIR ARCHIVO - Devonne Carl (Filipinas, India, Egipto)</h1>
+    <form onsubmit="return false;">
+      <input type="file" id="file-devonne" accept=".xlsx, .xls">
+      <br><br>
+      <button type="button" class="btn btn-procesar" data-modulo="devonne">Subir Archivo</button>
+    </form>
+    <div id="resultado-devonne" class="area-resultado"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</body>
+</html>
+
+
